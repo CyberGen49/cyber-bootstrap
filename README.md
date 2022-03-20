@@ -35,7 +35,8 @@ You can also modify some other text properties like base font size and line heig
 
 ```css
 :root {
-    --fontSize: 15px;
+    --fontHeaderWeight: bold;
+    --fontSize: 16px;
     --lineHeight: 1.4;
 }
 ```

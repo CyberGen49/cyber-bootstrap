@@ -29,9 +29,15 @@ CyberBootstrap CSS
     src: url(https://bootstrap.simplecyber.org/fonts/Sora-Variable.ttf) format('truetype');
 }
 @font-face {
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://bootstrap.simplecyber.org/fonts/Sora-Variable.ttf) format('truetype');
+}
+@font-face {
     font-family: 'Quicksand';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 100 900;
     src: url(https://bootstrap.simplecyber.org/fonts/Quicksand-Variable.ttf) format('truetype');
 }
 
@@ -49,12 +55,13 @@ CyberBootstrap CSS
     --fgD: #d2d4e0;
     --fg: #fff;
     --acc: #6cc9ff;
-    --accL: #92d7ff;
-    --accLL: #b1e2ff;
+    --accL: #a8dfff;
+    --accLL: #ccecfd;
     /* Fonts */
     --fontHeader: "Quicksand";
+    --fontHeaderWeight: 550;
     --fontBody: "Sora";
-    --fontSize: 15px;
+    --fontSize: 16px;
     --lineHeight: 1.4;
 }
 
@@ -78,16 +85,16 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     padding: 0px;
     margin-bottom: 0.2em;
-    margin-top: 0.5em;
+    margin-top: 0.6em;
     font-family: var(--fontHeader);
-    font-weight: bold;
+    font-weight: var(--fontHeaderWeight);
 }
-h1 { font-size: 34px; color: var(--acc); }
-h2 { font-size: 30px; color: var(--acc); }
-h3 { font-size: 26px }
-h4 { font-size: 24px }
-h5 { font-size: 18px }
-h6 { font-size: 16px }
+h1 { font-size: 36px; color: var(--acc); }
+h2 { font-size: 32px; color: var(--acc); }
+h3 { font-size: 28px; color: var(--accL); }
+h4 { font-size: 24px; color: var(--accLL); }
+h5 { font-size: 20px; color: var(--accLL); }
+h6 { font-size: 18px; color: var(--accLL); }
 .title { text-align: center }
 h1.title { font-size: 40px }
 h2.title { font-size: 34px }
