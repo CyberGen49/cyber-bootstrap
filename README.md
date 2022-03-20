@@ -1,5 +1,6 @@
 # cyber-bootstrap
-Boilerplate CSS and JavaScript for making good-looking websites.
+Boilerplate CSS and JavaScript for making good-looking websites.  
+[Read this document rendered with CyberBootstrap](https://bootstrap.simplecyber.org)
 
 ## Installation
 To start using CyberBootstrap, add this line to your HTML `<head>`:
