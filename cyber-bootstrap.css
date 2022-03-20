@@ -72,7 +72,7 @@ CyberBootstrap CSS
 /* Remove default body margin and set background colour */
 body {
     margin: 0px;
-    background: var(--bgD);
+    background: var(--bg);
 }
 
 /* Set up h1-h6 */
