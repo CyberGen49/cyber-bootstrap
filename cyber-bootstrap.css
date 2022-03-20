@@ -1,0 +1,192 @@
+
+/*
+
+CyberBootstrap CSS
+© CyberGen49
+
+*/
+
+/* Include normalize.css to get all browsers on the same page */
+@include https://necolas.github.io/normalize.css/8.0.1/normalize.css;
+
+/* Add fonts */
+@font-face {
+    font-family: 'Material Icons Outlined';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/MaterialIconsOutlined-Regular.otf) format('opentype');
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/MaterialIcons-Regular.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Sora';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/Sora-Variable.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/Quicksand-Variable.ttf) format('truetype');
+}
+
+:root {
+    /* Colours */
+    --bgDD: #121314;
+    --bgD: #1a1b1d;
+    --bg: #202124;
+    --bgL: #292a2e;
+    --bgLL: #43444b;
+    --bgLLL: #56575f;
+    --bgfg: #73747c;
+    --fgDDD: #898a92;
+    --fgDD: #a7a8b1;
+    --fgD: #d2d4e0;
+    --fg: #fff;
+    --acc: #6cc9ff;
+    --accL: #92d7ff;
+    --accLL: #b1e2ff;
+    /* Fonts */
+    --fontHeader: "Quicksand";
+    --fontBody: "Sora";
+    --fontSize: 15px;
+    --lineHeight: 1.4;
+}
+
+/* Set some properties on all elements */
+* {
+    box-sizing: border-box;
+    color: var(--fg);
+    font-family: var(--fontBody), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: var(--fontSize);
+    line-height: var(--lineHeight);
+}
+
+/* Remove default body margin and set background colour */
+body {
+    margin: 0px;
+    background: var(--bgD);
+}
+
+/* Set up h1-h6 */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0.2em;
+    margin-top: 0.5em;
+    font-family: var(--fontHeader);
+    font-weight: bold;
+}
+h1 { font-size: 34px; color: var(--acc); }
+h2 { font-size: 30px; color: var(--acc); }
+h3 { font-size: 26px }
+h4 { font-size: 24px }
+h5 { font-size: 18px }
+h6 { font-size: 16px }
+.title { text-align: center }
+h1.title { font-size: 40px }
+h2.title { font-size: 34px }
+h3.title { font-size: 30px }
+h4.title { font-size: 26px }
+h5.title { font-size: 22px }
+h6.title { font-size: 18px }
+
+/* Set up paragraph elements */
+p {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 0.6em;
+    line-height: 150%;
+}
+
+/* Set up ordered and unordered lists */
+ul, ol {
+    margin: 0px;
+    margin-left: 30px;
+    padding: 0px;
+    margin-bottom: 10px;
+}
+li {
+    line-height: 150%;
+}
+
+/* Set up anchors */
+a {
+    color: var(--acc);
+    text-decoration: none;
+}
+a:hover, a:focus {
+    color: var(--fgD);
+    text-decoration: underline;
+}
+
+/* Set up small text */
+small {
+    font-size: 14px;
+    line-height: 1;
+    color: var(--fgDD);
+}
+
+/* Allow span elements to inherit from their parent */
+span {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+/* Custom text highlight */
+::selection {
+    background: var(--bgLLL);
+}
+
+/* Custom scrollabrs */
+::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+::-webkit-resizer {
+    background: rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--fgDD);
+    border-radius: 100px;
+    background-clip: padding-box;
+    border: 6px solid rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--fg);
+    background-clip: padding-box;
+    border: 4px solid rgba(0, 0, 0, 0);
+}
+::-webkit-scrollbar-thumb:active {
+    background: var(--acc);
+    background-clip: padding-box;
+    border: 4px solid rgba(0, 0, 0, 0);
+}
+
+/* Utility classes */
+.d-block { display: block }
+.d-inlineBlock { display: inline-block }
+.d-flex { display: flex }
+.d-hidden { display: hidden }
+.p-relative { position: relative }
+.p-absolute { position: absolute }
+.p-fixed { position: fixed }
+.text-left { text-align: left }
+.text-center { text-align: center }
+.text-right { text-align: right }
+.margin-auto { margin: auto }
+.margin-0-auto { margin: 0 auto }
+.flex-centerVertical { align-items: center }
+.flex-centerHorizontal { justify-content: center }
+.flex-grow { flex-grow: 1 }
+.flex-noGrow { flex-grow: 0 }
+.flex-shrink { flex-shrink: 1 }
+.flex-noShrink { flex-shrink: 0 }
+.flex-wrap { flex-wrap: wrap }
+.hideOverflow { overflow: hidden }
