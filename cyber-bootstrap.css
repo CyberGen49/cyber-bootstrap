@@ -34,6 +34,7 @@ CyberBootstrap CSS
     font-weight: 100 900;
     src: url(https://bootstrap.simplecyber.org/fonts/Quicksand-Variable.ttf) format('truetype');
 }
+@include https://bootstrap.simplecyber.org/fonts/CascadiaCode.css;
 
 :root {
     /* Colours */
@@ -53,7 +54,7 @@ CyberBootstrap CSS
     --accLL: #ccecfd;
     /* Fonts */
     --fontHeader: "Quicksand";
-    --fontHeaderWeight: 550;
+    --fontHeaderWeight: 600;
     --fontBody: "Sora";
     --fontSize: 16px;
     --lineHeight: 1.4;
