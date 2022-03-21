@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CyberBootstrap Overview</title>
+    <meta name="og:site_name" value="CyberBootstrap">
+    <meta name="og:title" value="Overview">
+    <meta name="og:description" value="Boilerplate CSS and JavaScript for making good-looking websites.">
     <link rel="stylesheet" href="cyber-bootstrap.css">
 </head>
 <body>
-    <div class="d-flex">
-        <div id="main" class="margin-0-auto" style="max-width: 900px; padding: 20px 20px 30px 20px;">
-            Loading...
-        </div>
+    <div id="main" class="margin-0-auto" style="max-width: 900px; padding: 20px 20px 30px 20px;">
+        Loading...
     </div>
     <script src="cyber-bootstrap.js"></script>
     <script src="prism.js" data-manual></script>
@@ -19,7 +20,8 @@
     <script>
         (async() => {
             fetch('./README.md').then(async(response) => {
-                _id('main').innerHTML = marked.parse(await response.text());
+                let text = await response.text();
+                _id('main').innerHTML = marked.parse(text);
                 Prism.highlightAll();
             });
         })()

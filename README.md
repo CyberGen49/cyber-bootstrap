@@ -67,7 +67,7 @@ Many CyberBootstrap elements make use of an accent colour, which can be customiz
 ### Code block syntax highlighting
 Styling is included for highlighting the syntax of code inside of code blocks.
 
-For a quick and easy setup, link CyberBootstrap's basic version of [PrismJS](https://prismjs.com/) at the bottom of your HTML `<body>`, then call `Prism.highlightAll()` from your Javascript on page load:
+For a quick and easy setup, link CyberBootstrap's version of [PrismJS](https://prismjs.com/) (containing a handful of common languages) at the bottom of your HTML `<body>`, then call `Prism.highlightAll()` from your Javascript on page load:
 
 ```html
 <script src="https://bootstrap.simplecyber.org/prism.js" data-manual>

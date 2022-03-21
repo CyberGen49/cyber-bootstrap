@@ -198,6 +198,7 @@ pre {
 }
 
 /* Set up Prism syntax highlighting */
+.token.important,
 .token.builtin,
 .token.class-name,
 .token.property {
@@ -209,6 +210,7 @@ pre {
 .token.inserted {
     color: var(--codeGreen);
 }
+.token.color,
 .token.boolean,
 .token.number,
 .token.symbol,
@@ -231,6 +233,7 @@ pre {
 .token.tag,
 .token.entity,
 .token.atrule,
+.token.unit,
 .token.deleted {
     color: var(--codePink);
 }
