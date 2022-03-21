@@ -4,11 +4,13 @@ Boilerplate CSS and JavaScript for making good-looking websites.
 
 ## Installation
 To start using CyberBootstrap, add this line to your HTML `<head>`:
+
 ```html
 <link rel="stylesheet" href="https://bootstrap.simplecyber.org/cyber-bootstrap.css">
 ```
 
 Then add this line to the bottom of your HTML `<body>`:
+
 ```html
 <script src="https://bootstrap.simplecyber.org/cyber-bootstrap.js">
 ```
@@ -21,18 +23,23 @@ CyberBootstrap's main purpose is to provide some base styling for you to either 
 To modify aspects of CyberBootstrap with your own CSS, be sure to link your own `.css` files (or `<style>` elements) **after** linking CyberBootstrap in your HTML `<head>`.
 
 ### Fonts
-CyberBootstrap includes 4 fonts, [Quicksand](https://fonts.google.com/specimen/Quicksand?query=quicksand) and [Sora](https://fonts.google.com/specimen/Sora?query=sora), which are used for headers and body text respectively, and [Google's Material Icons](https://fonts.google.com/icons) filled and outlined icon fonts, which are used for form inputs (but can also be used for all sorts of things).
+CyberBootstrap includes a handful of fonts:
+* For headers: [Quicksand](https://fonts.google.com/specimen/Quicksand?query=quicksand)
+* For body text: [Sora](https://fonts.google.com/specimen/Sora?query=sora)
+* For code blocks: [Cascadia Code](https://github.com/microsoft/cascadia-code)
+* For icons: [Google Material Icons](https://fonts.google.com/icons) (filled and outlined)
 
-You can change the header and body fonts by modifying the `--fontHeader` and `--fontBody` properties in your own CSS:
+You can change these fonts by modifying the `--fontHeader` and `--fontBody` properties in your own CSS:
 
 ```css
 :root {
     --fontHeader: "Quicksand";
     --fontBody: "Sora";
+    --fontCode: "Cascadia Code";
 }
 ```
 
-Note that, to use other fonts, you'll need to link them in your HTML or include them in your CSS separately. [Google Fonts](https://fonts.google.com/) is a good place to start.
+To use other fonts, you'll need to link them in your HTML or include them in your CSS separately. [Google Fonts](https://fonts.google.com/) is a good place to start if you're looking for new fonts.
 
 You can also modify some other text properties like base font size and line height:
 
@@ -40,11 +47,11 @@ You can also modify some other text properties like base font size and line heig
 :root {
     --fontHeaderWeight: 550;
     --fontSize: 16px;
-    --lineHeight: 1.4;
+    --lineHeight: 1.5;
 }
 ```
 
-### Accent colour
+### Changing the accent colour
 Many CyberBootstrap elements make use of an accent colour, which can be customized to your liking. Do so by modifying the following properties in your own CSS:
 
 ```css
@@ -56,6 +63,22 @@ Many CyberBootstrap elements make use of an accent colour, which can be customiz
 ```
 
 `--accL` and `--accLL` are lighter versions of the base accent colour (`--acc`), and are used for hovering and selecting elements. These should be adjusted for your new accent colour.
+
+### Code block syntax highlighting
+Styling is included for highlighting the syntax of code inside of code blocks.
+
+For a quick and easy setup, link CyberBootstrap's basic version of PrismJS at the bottom of your HTML `<body>`, then have it highlight all code blocks on page load like so:
+
+```html
+<script src="https://bootstrap.simplecyber.org/prism.js" data-manual>
+```
+```javascript
+window.addEventListener('load', () => {
+    Prism.highlightAll();
+});
+```
+
+If you want to add more languages to Prism, head to [Prism's download customization page](https://prismjs.com/download.html). Note that you won't need to download any CSS from there, since CyberBootstrap covers it.
 
 ### Javascript
 In addition to handling some of the custom form elements, CyberBootstrap Javascript comes with a handful of helpful functions to make your other scripts easier to write.

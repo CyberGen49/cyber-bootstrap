@@ -52,12 +52,20 @@ CyberBootstrap CSS
     --acc: #6cc9ff;
     --accL: #a8dfff;
     --accLL: #ccecfd;
+    --codeYellow: #fff781;
+    --codePurple: #b881ff;
+    --codePink: #ff81bc;
+    --codeBlue: #81d7ff;
+    --codeGreen: #81ff81;
+    --codeWhite: #fff;
+    --codeMuted: #4a5481;
     /* Fonts */
     --fontHeader: "Quicksand";
     --fontHeaderWeight: 600;
     --fontBody: "Sora";
+    --fontCode: "Cascadia Code";
     --fontSize: 16px;
-    --lineHeight: 1.4;
+    --lineHeight: 1.5;
 }
 
 /* Set some properties on all elements */
@@ -100,10 +108,11 @@ h6.title { font-size: 18px }
 
 /* Set up paragraph elements */
 p {
+    max-height: 9000px;
     margin: 0px;
     padding: 0px;
-    margin-bottom: 0.6em;
-    line-height: 150%;
+    margin-bottom: 0.5em;
+    line-height: var(--lineHeight);
 }
 
 /* Set up ordered and unordered lists */
@@ -114,7 +123,8 @@ ul, ol {
     margin-bottom: 10px;
 }
 li {
-    line-height: 150%;
+    max-height: 9000px;
+    line-height: var(--lineHeight);
 }
 
 /* Set up anchors */
@@ -136,10 +146,90 @@ small {
 
 /* Allow span elements to inherit from their parent */
 span {
+    font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     color: inherit;
 }
+
+/* Set up code blocks */
+pre, code {
+    max-height: 9000px;
+    background: var(--bgL);
+    font-family: var(--fontCode), monospace;
+    font-size: inherit;
+    word-break: break-word;
+}
+code:not(pre code) {
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+pre {
+    padding: 10px 15px;
+    margin: 15px 0px;
+    border-radius: 12px;
+    line-height: 120%;
+    white-space: pre-wrap;
+}
+
+/* Set up Prism syntax highlighting */
+.token.keyword,
+.token.builtin,
+.token.class-name,
+.token.property {
+    color: var(--codeBlue);
+}
+
+.token.function,
+.token.attr-name,
+.token.selector,
+.token.inserted {
+    color: var(--codeGreen);
+}
+
+.token.boolean,
+.token.number,
+.token.symbol,
+.token.constant {
+    color: var(--codePurple);
+}
+
+.token.string,
+.token.char,
+.token.regex,
+.token.url,
+.token.attr-value {
+    color: var(--codeYellow);
+}
+
+.token.operator,
+.token.variable,
+.token.punctuation {
+    color: var(--codeWhite);
+}
+
+.token.tag,
+.token.entity,
+.token.atrule,
+.token.deleted {
+    color: var(--codePink);
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--codeMuted);
+}
+
+.token.namespace { opacity: 0.6 }
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic { font-style: italic }
 
 /* Custom text highlight */
 ::selection {
