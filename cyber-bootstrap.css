@@ -38,7 +38,25 @@ https://github.com/CyberGen49/cyber-bootstrap
     font-family: 'Cascadia Code';
     font-style: normal;
     font-weight: 400;
-    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCode.css) format('truetype');
+    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCode.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: normal;
+    font-weight: 700;
+    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCode.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCodeItalic.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: italic;
+    font-weight: 700;
+    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCodeItalic.ttf) format('truetype');
 }
 
 :root {
@@ -57,13 +75,13 @@ https://github.com/CyberGen49/cyber-bootstrap
     --acc: #6cc9ff;
     --accL: #a8dfff;
     --accLL: #ccecfd;
-    --codeYellow: #fff781;
-    --codePurple: #b881ff;
-    --codePink: #ff81bc;
-    --codeBlue: #81d7ff;
-    --codeGreen: #81ff81;
+    --codeYellow: #fff897;
+    --codePurple: #ae97ff;
+    --codePink: #ff97bf;
+    --codeBlue: #97e2ff;
+    --codeGreen: #9aff97;
     --codeWhite: #fff;
-    --codeMuted: #4a5481;
+    --codeMuted: #747da1;
     /* Fonts */
     --fontHeader: "Quicksand";
     --fontHeaderWeight: 600;
@@ -71,6 +89,7 @@ https://github.com/CyberGen49/cyber-bootstrap
     --fontCode: "Cascadia Code";
     --fontSize: 16px;
     --lineHeight: 1.5;
+    --lineHeightHeader: 1.2;
 }
 
 /* Set some properties on all elements */
@@ -92,10 +111,11 @@ body {
 h1, h2, h3, h4, h5, h6 {
     margin: 0px;
     padding: 0px;
-    margin-bottom: 0.2em;
-    margin-top: 0.6em;
+    margin-bottom: 0.3em;
+    margin-top: 0.7em;
     font-family: var(--fontHeader);
     font-weight: var(--fontHeaderWeight);
+    line-height: var(--lineHeightHeader);
 }
 h1 { font-size: 36px; color: var(--acc); }
 h2 { font-size: 32px; color: var(--acc); }
@@ -178,27 +198,23 @@ pre {
 }
 
 /* Set up Prism syntax highlighting */
-.token.keyword,
 .token.builtin,
 .token.class-name,
 .token.property {
     color: var(--codeBlue);
 }
-
 .token.function,
 .token.attr-name,
 .token.selector,
 .token.inserted {
     color: var(--codeGreen);
 }
-
 .token.boolean,
 .token.number,
 .token.symbol,
 .token.constant {
     color: var(--codePurple);
 }
-
 .token.string,
 .token.char,
 .token.regex,
@@ -206,34 +222,29 @@ pre {
 .token.attr-value {
     color: var(--codeYellow);
 }
-
-.token.operator,
 .token.variable,
 .token.punctuation {
     color: var(--codeWhite);
 }
-
+.token.keyword,
+.token.operator,
 .token.tag,
 .token.entity,
 .token.atrule,
 .token.deleted {
     color: var(--codePink);
 }
-
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
     color: var(--codeMuted);
 }
-
-.token.namespace { opacity: 0.6 }
-
 .token.important,
 .token.bold {
     font-weight: bold;
 }
-
+.token.namespace { opacity: 0.6 }
 .token.italic { font-style: italic }
 
 /* Custom text highlight */

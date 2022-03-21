@@ -67,7 +67,7 @@ Many CyberBootstrap elements make use of an accent colour, which can be customiz
 ### Code block syntax highlighting
 Styling is included for highlighting the syntax of code inside of code blocks.
 
-For a quick and easy setup, link CyberBootstrap's basic version of PrismJS at the bottom of your HTML `<body>`, then have it highlight all code blocks on page load like so:
+For a quick and easy setup, link CyberBootstrap's basic version of [PrismJS](https://prismjs.com/) at the bottom of your HTML `<body>`, then call `Prism.highlightAll()` from your Javascript on page load:
 
 ```html
 <script src="https://bootstrap.simplecyber.org/prism.js" data-manual>
@@ -76,6 +76,13 @@ For a quick and easy setup, link CyberBootstrap's basic version of PrismJS at th
 window.addEventListener('load', () => {
     Prism.highlightAll();
 });
+```
+
+Then add language classes to your code blocks like so:
+```html
+<pre>
+    <code class="language-javascript">console.log("It works!")</code>
+</pre>
 ```
 
 If you want to add more languages to Prism, head to [Prism's download customization page](https://prismjs.com/download.html). Note that you won't need to download any CSS from there, since CyberBootstrap covers it.
@@ -119,10 +126,23 @@ showPopup(title, html, allowClose);
 * `html`: Any HTML to put inside the popup, which can include complex elements like images or forms, or just text.
 * `allowClose`: If `false`, the close button will be hidden and the user won't be able to click outside of the popup to close it. In this case, a button should have a registered click event that closes the popup (detailed below).
 
+Returns an ID string that can be used to close the popup.
+
 #### Closing the popup
 By default, the user can click outside of the popup or use its close button to close it, unless `allowClose` is set to `false`.
 
-`showPopup()` will return the resulting popup's ID (`popup-<timestamp>`). Pass this ID to the `closePopup()` function to close it.
+You can use the `hidePopup()` function to close the popup like so:
+
+```javascript
+// Show the popup with allowClose set to false
+let popupId = showPopup('Test popup', `
+    <button id="testPopupDone">Close popup</button>
+`, false);
+// Close the popup when the button is clicked
+_id('testPopupDone').addEventListener('click', () => {
+    hidePopup(popupId);
+});
+```
 
 ## Browser support
 CyberBootstrap is intended to work on all modern browsers, including all Chromium-based browsers (Chrome, Edge, etc.) and Firefox.
