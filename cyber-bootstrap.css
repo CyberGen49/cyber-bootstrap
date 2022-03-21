@@ -256,6 +256,11 @@ pre {
 .token.italic { font-style: italic }
 .token.namespace { opacity: 0.6 }
 
+/* Add bottom margin to form elements */
+form {
+    margin-bottom: 10px;
+}
+
 /* Set up text boxes */
 .textbox {
     width: 100%;
@@ -286,23 +291,36 @@ textarea.textbox { height: auto; }
     color: var(--fgDDD);
 }
 
-/* Add bottom margin to form elements */
-form {
-    margin-bottom: 10px;
+/* Set up buttons */
+button {
+    height: 40px;
+    margin: 3px;
+    padding: 2px 16px 0px 16px;
+    background: var(--acc);
+    color: var(--bg);
+    border: none;
+    border-radius: 8px;
+    transition: 0.1s ease-in-out;
+    user-select: none;
+}
+button:hover:not(:disabled) {
+    background: var(--fgD);
+    border-color: var(--fgD);
+}
+button:active:not(:disabled) {
+    background: var(--fg);
+    border-color: var(--fg);
+}
+button:disabled {
+    background: var(--bgL);
+    color: var(--fgDDD);
 }
 
 /* Set up radio buttons and checkboxes */
-label.selectOption {
-    display: flex;
-    align-items: center;
-    padding: 5px 3px;
-}
 input[type="radio"],
 input[type="checkbox"] {
     appearance: none;
-    margin: 0px;
-    margin-top: -0.05em;
-    margin-right: 0.4em;
+    margin: 3px;
     font-family: "Material Icons";
     font-size: 1.6em;
     color: var(--fgD);
@@ -318,6 +336,16 @@ input[type="radio"]::before { content: "radio_button_unchecked"; }
 input[type="radio"]:checked::before { content: "radio_button_checked"; }
 input[type="checkbox"]::before { content: "check_box_outline_blank"; }
 input[type="checkbox"]:checked::before { content: "check_box"; }
+label.selectOption {
+    display: flex;
+    align-items: center;
+    padding: 5px 3px;
+}
+label.selectOption input[type="radio"],
+label.selectOption input[type="checkbox"] {
+    margin-top: -0.05em;
+    margin-right: 0.4em;
+}
 
 /* Custom text highlight */
 ::selection {

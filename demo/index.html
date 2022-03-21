@@ -60,17 +60,24 @@ for (i = 0; i &lt; 10; i++) {
     console.log(`Looping ${i}`);
 }</code></pre>
 
-        <h2>Text inputs</h2>
-        <input type="text" class="textbox" value="This is a single-line textbox">
-        <textarea class="textbox" rows="3">This is a
+        <h2>Form elements</h2>
+        <form>
+            
+            <input type="text" class="textbox" value="This is a single-line textbox">
+            <textarea class="textbox" rows="3">This is a
 multi-line
 textbox</textarea>
-        <input type="text" class="textbox" value="This is a single-line disabled textbox" disabled>
-        <textarea class="textbox" rows="3" disabled>This is a
+            <input type="text" class="textbox" value="This is a single-line disabled textbox" disabled>
+            <textarea class="textbox" rows="3" disabled>This is a
 multi-line
 disabled textbox</textarea>
+        </form>
 
-        <h2>Selections</h2>
+        <form>
+            <button type="button">Button</button>
+            <button type="button" disabled>Disabled button</button>
+        </form>
+
         <p>Single select</p>
         <form>
             <label class="selectOption">
@@ -89,6 +96,7 @@ disabled textbox</textarea>
                 Option 3
             </label>
         </form>
+
         <p>Multi select</p>
         <form>
             <label class="selectOption">
