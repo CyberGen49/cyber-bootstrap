@@ -2,7 +2,7 @@
 /*
 
 CyberBootstrap CSS
-© CyberGen49
+https://github.com/CyberGen49/cyber-bootstrap
 
 */
 
@@ -34,7 +34,12 @@ CyberBootstrap CSS
     font-weight: 100 900;
     src: url(https://bootstrap.simplecyber.org/fonts/Quicksand-Variable.ttf) format('truetype');
 }
-@include https://bootstrap.simplecyber.org/fonts/CascadiaCode.css;
+@font-face {
+    font-family: 'Cascadia Code';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://bootstrap.simplecyber.org/fonts/CascadiaCode.css) format('truetype');
+}
 
 :root {
     /* Colours */

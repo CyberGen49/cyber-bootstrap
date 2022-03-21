@@ -93,6 +93,11 @@ A shorthand function for `*.getElementsByClassName()` - returns an HTML element 
 * `id`: The class name of the target elements
 * `ancestor`: An HTML element object to serve as the root for `getElementsByClassName()` (takes the place of the `*` above) - defaults to `document`
 
+#### `_tag(tag, ancestor)`
+A shorthand function for `*.getElementsByTagName()` - returns an HTML element object
+* `id`: The tag name of the target elements
+* `ancestor`: An HTML element object to serve as the root for `getElementsByTagName()` (takes the place of the `*` above) - defaults to `document`
+
 #### `_qs(selector, ancestor)`
 A shorthand function for `*.querySelector()` - returns an HTML element object
 * `selector`: The query selector for the target element

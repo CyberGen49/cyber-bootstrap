@@ -2,7 +2,7 @@
 /*
 
 CyberBootstrap Javascript
-© CyberGen49
+https://github.com/CyberGen49/cyber-bootstrap
 
 */
 
@@ -11,6 +11,9 @@ function _id(id, ancestor = document) {
 }
 function _class(id, ancestor = document) {
     return ancestor.getElementsByClassName(id);
+}
+function _tag(tag, ancestor = document) {
+    return ancestor.getElementsByTagName(tag);
 }
 function _qs(selector, ancestor = document) {
     return ancestor.querySelector(selector);
