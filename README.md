@@ -20,7 +20,7 @@ Check out [the demo](demo/) for a demonstration of everything CyberBootstrap has
 ## Documentation
 CyberBootstrap's main purpose is to provide some base styling for you to either build off of or leave as-is. There are some customization options available (via [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/--*)) so you can adjust the design to your liking without writing tons of extra CSS.
 
-To modify aspects of CyberBootstrap with your own CSS, be sure to link your own `.css` files (or `<style>` elements) **after** linking CyberBootstrap in your HTML `<head>`.
+To modify aspects of CyberBootstrap with your own CSS, be sure to link any extra `.css` files (or `<style>` elements) **after** linking CyberBootstrap in your HTML `<head>`.
 
 ### Fonts
 CyberBootstrap includes a handful of fonts:
