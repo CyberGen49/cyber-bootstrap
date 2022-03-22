@@ -21,3 +21,113 @@ function _qs(selector, ancestor = document) {
 function _qsa(selector, ancestor = document) {
     return ancestor.querySelectorAll(selector);
 }
+
+// Continuously scan for and adjust dynamic form elements
+setInterval(() => {
+    const dropdowns = _tag('select');
+    Array.from(dropdowns).forEach((dropdown) => {
+        if (dropdown.dataset.adjusted === undefined && !dropdown.multiple && dropdown.dataset.default === undefined) {
+            const showCustomDropdown = () => {
+                const options = _tag('option', dropdown);
+                const rect = dropdown.getBoundingClientRect();
+                const id = `dropdown-${Date.now()}`;
+                const hideDropdown = () => {
+                    _id(`${id}-hitArea`).remove();
+                    _id(id).classList.remove('visible');
+                    setTimeout(() => {
+                        _id(id).remove();
+                    }, 200);
+                    dropdown.focus();
+                };
+                document.body.insertAdjacentHTML('beforeend', `
+                    <div id="${id}-hitArea" class="customDropdownHitArea"></div>
+                    <div id="${id}" class="customDropdown"></div>
+                `);
+                _id(`${id}-hitArea`).addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hideDropdown();
+                });
+                _id(id).addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+                let i = 0;
+                let foundFocus = false;
+                Array.from(options).forEach((option) => {
+                    const optId = `${id}-option-${i}`;
+                    _id(id).insertAdjacentHTML('beforeend', `
+                        <button id="${optId}" class="option ${(option.selected) ? 'selected':''}" ${(option.disabled) ? 'disabled':''}>${option.innerText}</button>
+                    `);
+                    _id(optId).addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        hideDropdown();
+                        if (option.value)
+                            dropdown.value = option.value;
+                        else
+                            dropdown.value = option.innerHTML;
+                    });
+                    // if (!foundFocus && !option.disabled) {
+                    //     _id(optId).focus();
+                    //     foundFocus = true;
+                    // }
+                    i++;
+                });
+                _id(id).style.top = `${(rect.bottom+window.scrollY+5)}px`;
+                _id(id).style.left = `${rect.left}px`;
+                _id(id).style.width = `${dropdown.offsetWidth}px`;
+                setTimeout(() => {
+                    _id(id).classList.add('visible');
+                }, 5);
+                escapeQueue.push(hideDropdown);
+                resizeQueue.push(hideDropdown);
+            }
+            dropdown.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+            });
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+                showCustomDropdown();
+            });
+            dropdown.addEventListener('keydown', (e) => {
+                if (e.code == 'Enter' || e.code == 'Space') {
+                    e.preventDefault();
+                    showCustomDropdown();
+                }
+            });
+            dropdown.dataset.adjusted = true;
+        }
+    });
+}, 100);
+
+// Handle the Escape queue
+let escapeQueue = [];
+function shiftEscapeQueue() {
+    while (escapeQueue.length > 0) {
+        let action = escapeQueue.shift();
+        try {
+            action();
+        } catch (error) {
+            continue;
+        }
+        break;
+    }
+}
+window.addEventListener('keyup', (e) => {
+    if (e.code == 'Escape') {
+        shiftEscapeQueue();
+    }
+});
+
+// Handle the resize queue
+let resizeQueue = [];
+function shiftResizeQueue() {
+    while (resizeQueue.length > 0) {
+        let action = resizeQueue.shift();
+        try {
+            action();
+        } catch (error) {
+            continue;
+        }
+        break;
+    }
+}
+window.addEventListener('resize', shiftResizeQueue);

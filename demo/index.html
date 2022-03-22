@@ -11,9 +11,11 @@
     <link rel="stylesheet" href="../cyber-bootstrap.css">
 </head>
 <body>
-    <div id="main" class="margin-0-auto" style="max-width: 900px; padding: 20px 20px 30px 20px;">
+    <div id="main" class="container">
         <h1>CyberBootstrap Demo</h1>
-        <p>This page demonstrates everything that CyberBootstrap has to offer.</p>
+        <p>This page demonstrates everything that CyberBootstrap has to offer. Feel free to take a closer look using your browser's DevTools, which you can open by pressing <code>Ctrl + Shift + I</code> or <code>F12</code>.</p>
+        <p>Head back to the <a href="/">overview page</a> to learn more about how you can use all of these features.</p>
+
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
         <h3>Heading 3</h3>
@@ -74,45 +76,61 @@ disabled textbox</textarea>
         </form>
 
         <form>
+            <div class="textboxWrapper dropdown">
+                <select class="textbox">
+                    <option selected disabled>This is a dropdown menu</option>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                </select>
+            </div>
+        </form>
+
+        <form>
+            <label>This is a date selector</label>
+            <div class="textboxWrapper date">
+                <input type="datetime-local" class="textbox">
+            </div>
+        </form>
+
+        <form>
             <button type="button">Button</button>
             <button type="button" disabled>Disabled button</button>
         </form>
 
-        <p>Single select</p>
         <form>
             <label class="selectOption">
                 <input type="radio" name="singleSelect" checked>
                 <div>
-                    <div>Option 1</div>
+                    <div>Single option 1</div>
                     <small>This item has a description, too!</small>
                 </div>
             </label>
             <label class="selectOption">
                 <input type="radio" name="singleSelect">
-                Option 2
+                Single option 2
             </label>
             <label class="selectOption">
                 <input type="radio" name="singleSelect">
-                Option 3
+                Single option 3
             </label>
         </form>
 
-        <p>Multi select</p>
         <form>
             <label class="selectOption">
                 <input type="checkbox" name="multiSelect" checked>
                 <div>
-                    <div>Option 1</div>
+                    <div>Multi option 1</div>
                     <small>This item has a description, too!</small>
                 </div>
             </label>
             <label class="selectOption">
                 <input type="checkbox" name="multiSelect">
-                Option 2
+                Multi option 2
             </label>
             <label class="selectOption">
                 <input type="checkbox" name="multiSelect" checked>
-                Option 3
+                Multi option 3
             </label>
         </form>
     </div>

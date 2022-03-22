@@ -162,10 +162,6 @@ a {
     color: var(--acc);
     text-decoration: none;
 }
-a:hover, a:focus {
-    color: var(--fgD);
-    text-decoration: underline;
-}
 
 /* Set up small text */
 small {
@@ -191,6 +187,7 @@ pre, code {
     word-break: break-word;
 }
 code:not(pre code) {
+    color: var(--fgD);
     padding: 2px 8px;
     border-radius: 6px;
 }
@@ -240,6 +237,7 @@ pre {
 .token.entity,
 .token.atrule,
 .token.unit,
+.token.interpolation-punctuation,
 .token.deleted {
     color: var(--codePink);
 }
@@ -281,15 +279,36 @@ textarea.textbox { height: auto; }
     background: var(--bgL);
     pointer-events: none;
 }
-.textbox:hover:not(:disabled) {
-    border-color: var(--bgLL);
-}
 .textbox:focus:not(:disabled) {
     border-color: var(--acc);
 }
 .textbox::placeholder {
     color: var(--fgDDD);
 }
+
+/* Set up textbox icons */
+.textboxWrapper { position: relative }
+.textboxWrapper::after {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    height: calc(100% - 20px);
+    width: 45px;
+    background: var(--bgD);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 100%;
+    color: var(--fgDD);
+    font-family: "Material Icons Outlined";
+    font-size: 22px;
+    pointer-events: none;
+}
+.textboxWrapper.dropdown::after {
+    content: "expand_more";
+    font-size: 24px;
+}
+.textboxWrapper.date::after { content: "event" }
 
 /* Set up buttons */
 button {
@@ -302,10 +321,6 @@ button {
     border-radius: 8px;
     transition: 0.1s ease-in-out;
     user-select: none;
-}
-button:hover:not(:disabled) {
-    background: var(--fgD);
-    border-color: var(--fgD);
 }
 button:active:not(:disabled) {
     background: var(--fg);
@@ -323,7 +338,7 @@ input[type="checkbox"] {
     margin: 3px;
     font-family: "Material Icons";
     font-size: 1.6em;
-    color: var(--fgD);
+    color: var(--fgDD);
     line-height: 1;
     flex-shrink: 0;
     transition: 0.1s ease-in-out;
@@ -343,8 +358,62 @@ label.selectOption {
 }
 label.selectOption input[type="radio"],
 label.selectOption input[type="checkbox"] {
-    margin-top: -0.05em;
+    margin-top: 0;
     margin-right: 0.4em;
+}
+
+/* Set up custom dropdown menus */
+.customDropdownHitArea {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+.customDropdown {
+    position: absolute;
+    max-height: 500px;
+    padding: 4px;
+    background: var(--bgL);
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    user-select: none;
+    transition: 0.1s ease-in-out;
+    opacity: 0;
+}
+.customDropdown.visible { opacity: 1 }
+.customDropdown .option {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 6px 12px;
+    padding-bottom: 5px;
+    color: var(--fg);
+    text-align: left;
+    background: rgba(0, 0, 0, 0);
+    outline: none;
+    border-radius: 6px;
+    transition: 0.1s ease-in-out;
+}
+.customDropdown .option:focus:not(.selected):not(:disabled) {
+    background: var(--bgLL);
+}
+.customDropdown .option:active {
+    background: inherit;
+    color: inherit;
+}
+.customDropdown .option.selected:focus:not(:disabled) {
+    background: var(--accL);
+}
+.customDropdown .option.selected:not(:disabled) {
+    background: var(--acc);
+    color: var(--bg);
+}
+.customDropdown .option:disabled {
+    color: var(--fgDDD);
 }
 
 /* Custom text highlight */
@@ -369,30 +438,30 @@ label.selectOption input[type="checkbox"] {
     background-clip: padding-box;
     border: 6px solid rgba(0, 0, 0, 0);
 }
-::-webkit-scrollbar-thumb:hover {
-    background: var(--fg);
-    background-clip: padding-box;
-    border: 4px solid rgba(0, 0, 0, 0);
-}
 ::-webkit-scrollbar-thumb:active {
     background: var(--acc);
     background-clip: padding-box;
     border: 4px solid rgba(0, 0, 0, 0);
 }
 
-/* Utility classes */
+/* Display classes */
 .d-block { display: block }
 .d-inlineBlock { display: inline-block }
 .d-flex { display: flex }
 .d-hidden { display: hidden }
+.hideOverflow { overflow: hidden }
+/* Position classes */
 .p-relative { position: relative }
 .p-absolute { position: absolute }
 .p-fixed { position: fixed }
+/* Text alignment classes */
 .text-left { text-align: left }
 .text-center { text-align: center }
 .text-right { text-align: right }
+/* Auto margin classes */
 .margin-auto { margin: auto }
 .margin-0-auto { margin: 0 auto }
+/* Flex classes */
 .flex-centerVertical { align-items: center }
 .flex-centerHorizontal { justify-content: center }
 .flex-grow { flex-grow: 1 }
@@ -400,4 +469,68 @@ label.selectOption input[type="checkbox"] {
 .flex-shrink { flex-shrink: 1 }
 .flex-noShrink { flex-shrink: 0 }
 .flex-wrap { flex-wrap: wrap }
-.hideOverflow { overflow: hidden }
+/* Transition classes */
+.noTransitions { transition: none !important }
+.transEaseIO100 { transition: 0.1s ease-in-out }
+.transEaseIO200 { transition: 0.2s ease-in-out }
+.transEaseIO300 { transition: 0.3s ease-in-out }
+.transEaseIO400 { transition: 0.4s ease-in-out }
+/* Container class */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Material Icons classes */
+.materialIcon {
+    font-family: "Material Icons";
+    font-size: 24px;
+    line-height: 1;
+    color: var(--fg);
+    user-select: none;
+}
+.materialIcon.outlined { font-family: "Material Icons Outlined" }
+
+/* Adjust styling for devices with touch input */
+@media (hover: none) and (pointer: coarse) {
+    label.selectOption {
+        padding: 8px 3px;
+    }
+    .customDropdown .option {
+        padding: 10px 12px;
+    }
+}
+
+/* Add element hover styling for hover-capable devices */
+@media (hover: hover) {
+    a:hover {
+        color: var(--fgD);
+        text-decoration: underline;
+    }
+    .textbox:hover:not(:disabled):not(:focus) {
+        border-color: var(--bgLL);
+    }
+    button:hover:not(:disabled):not(:active) {
+        background: var(--fgD);
+        border-color: var(--fgD);
+    }
+    label.selectOption:hover > input[type="radio"],
+    label.selectOption:hover > input[type="checkbox"] {
+        color: var(--fgD);
+    }
+    label.selectOption:hover > input[type="radio"]:checked,
+    label.selectOption:hover > input[type="checkbox"]:checked {
+        color: var(--accL);
+    }
+    .customDropdown .option:hover:not(.selected):not(:disabled) {
+        background: var(--bgLL);
+    }
+    .customDropdown .option.selected:hover:not(:disabled) {
+        background: var(--accL);
+    }
+    ::-webkit-scrollbar-thumb:hover:not(:active) {
+        background: var(--fg);
+        background-clip: padding-box;
+        border: 4px solid rgba(0, 0, 0, 0);
+    }
+}
