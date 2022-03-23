@@ -115,6 +115,10 @@ A shorthand function for `*.querySelectorAll()` - returns an HTML element object
 * `selector`: The query selector for the target elements
 * `ancestor`: An HTML element object to serve as the root for `querySelectorAll()` (takes the place of the `*` above) - defaults to `document`
 
+#### `randomHex(length)`
+Returns a randomly generated hexadecimal string
+* `length`: The length to make the resulting string
+
 ### Popups
 CyberBootstrap makes it easy to display popup modals with Javascript:
 
