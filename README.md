@@ -119,6 +119,12 @@ A shorthand function for `*.querySelectorAll()` - returns an HTML element object
 Returns a randomly generated hexadecimal string
 * `length`: The length to make the resulting string
 
+#### `clamp(num, min, max)`
+Ensures that a number stays between a minimum and maximum
+* `num`: The number to check
+* `min`: The minimum value to return
+* `max`: The maximum value to return
+
 ### Popups
 CyberBootstrap makes it easy to display popup modals with Javascript:
 

@@ -31,6 +31,12 @@ function randomHex(length = 8) {
     return str;
 }
 
+function clamp(num, min, max) {
+    if (num < min) return min;
+    if (num > max) return max;
+    return num;
+}
+
 // Continuously scan for and adjust dynamic form elements
 setInterval(() => {
     const dropdowns = _tag('select');
