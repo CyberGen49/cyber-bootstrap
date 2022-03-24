@@ -127,12 +127,14 @@ function showPopup(title, innerHtml, closeable = true) {
             </div>
         </div>
     `);
-    _id(id).addEventListener('click', (e) => {
-        if (closeable) hidePopup(id, onClose);
-    });
-    if (closeable) _id(`${id}-close`).addEventListener('click', (e) => {
-        hidePopup(id, onClose);
-    });
+    if (closeable) {
+        _id(id).addEventListener('click', (e) => {
+            hidePopup(id);
+        });
+        _id(`${id}-close`).addEventListener('click', (e) => {
+            hidePopup(id);
+        });
+    }
     _id(`${id}-box`).addEventListener('click', (e) => {
         e.stopPropagation();
     });

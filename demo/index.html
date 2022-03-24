@@ -133,8 +133,21 @@ disabled textbox</textarea>
                 Multi option 3
             </label>
         </form>
+
+        <h2>Popups</h2>
+        <form>
+            <button type="button" id="displayPopup">Display a popup</button>
+        </form>
     </div>
     <script src="../cyber-bootstrap.js"></script>
     <script src="../prism.js"></script>
+    <script>
+        _id('displayPopup').addEventListener('click', () => {
+            showPopup(`Example popup`, `
+                <p>This is what a popup looks like!</p>
+                <p>The popup can be closed by clicking in the dim area around it, or by using its close button in the top right corner.</p>
+            `);
+        });
+    </script>
 </body>
 </html>
