@@ -241,6 +241,9 @@ _id('testPopupDone').addEventListener('click', () => {
 _id(popupId).addEventListener('close', () => {
     console.log(`Popup closed!`);
 });
+
+// Alternatively, don't pass false to showPopup() and just use the
+// popup's dedicated close button
 ```
 
 ## Browser support
