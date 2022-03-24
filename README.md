@@ -129,7 +129,7 @@ Ensures that a number stays between a minimum and maximum
 CyberBootstrap makes it easy to display popup modals with Javascript:
 
 ```js
-showPopup(title, html, allowClose);
+showPopup(title, html, allowClose, onClose);
 ```
 
 * `title`: Text to show as the title for the popup (should be short)
@@ -141,13 +141,20 @@ Returns an ID string that can be used to close the popup.
 #### Closing the popup
 By default, the user can click outside of the popup or use its close button to close it, unless `allowClose` is set to `false`.
 
-You can use the `hidePopup()` function to close the popup like so:
+The `hidePopup()` function can be called manually to hide the popup on demand, but is also used to handle the default close actions. When the popup is closed, it emits a `close` event that can be listened for.
+
+Here's an example that ties it all together:
 
 ```javascript
 // Show the popup with allowClose set to false
 let popupId = showPopup('Test popup', `
+    <p>It works!</p>
     <button id="testPopupDone">Close popup</button>
 `, false);
+// Listen for the popup's close event
+_id(popupId).addEventListener('close', () => {
+    console.log(`Popup closed!`);
+});
 // Close the popup when the button is clicked
 _id('testPopupDone').addEventListener('click', () => {
     hidePopup(popupId);

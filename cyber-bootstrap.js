@@ -113,6 +113,38 @@ setInterval(() => {
     });
 }, 100);
 
+// Handle popups
+function showPopup(title, innerHtml, closeable = true) {
+    let id = `popup-${Date.now()}`;
+    document.documentElement.insertAdjacentHTML('beforeend', `
+        <div id="${id}" class="popupCont">
+            <div id="${id}-box" class="popup">
+                <div class="titlebar">
+                    <div class="title">${title}</div>
+                    ${(closeable) ? `<button id="${id}-close" class="close">close</button>`:''}
+                </div>
+                <div class="content">${innerHtml}</div>
+            </div>
+        </div>
+    `);
+    _id(id).addEventListener('click', (e) => {
+        if (closeable) hidePopup(id, onClose);
+    });
+    if (closeable) _id(`${id}-close`).addEventListener('click', (e) => {
+        hidePopup(id, onClose);
+    });
+    _id(`${id}-box`).addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    setTimeout(() => { _id(id).classList.add('visible') }, 50);
+    return id;
+}
+function hidePopup(id) {
+    _id(id).classList.remove('visible');
+    setTimeout(() => { _id(id).remove() }, 200);
+    _id(id).dispatchEvent(new Event('close'));
+}
+
 // Handle the Escape queue
 let escapeQueue = [];
 function shiftEscapeQueue() {
