@@ -64,6 +64,88 @@ Many CyberBootstrap elements make use of an accent colour, which can be customiz
 
 `--accL` and `--accLL` are lighter versions of the base accent colour (`--acc`), and are used for hovering and selecting elements. These should be adjusted for your new accent colour.
 
+### Form elements
+A big part of CyberBootstrap is its custom form elements.
+
+In addition to styling the input elements themselves, `<form>` elements have a small bottom padding to help with separation.
+
+Learn more about HTML forms on [MDN's web forms guide](https://developer.mozilla.org/en-US/docs/Learn/Forms).
+
+#### Buttons
+Buttons are the simplest form element, and require no extra classes for their styling:
+```html
+<button>This is a button</button>
+```
+
+#### Text boxes
+A simple text box can be created like so:
+```html
+<input type="text" class="textbox" value="This is a single-line textbox">
+```
+
+This `textbox` class applies to all text-based input `type`s, along with `<textarea>` elements.
+
+#### Date inputs
+While date input types like `datetime-local` can be used just like normal textboxes, they need to be wrapped to customize the icon displayed on their right side. Add the wrapper element like so:
+```html
+<label>This is a date selector</label>
+<div class="textboxWrapper date">
+    <input type="datetime-local" class="textbox">
+</div>
+```
+
+#### Dropdown menus
+CyberBootstrap adds its own completely custom dropdown menus, but they still use default `<select>` and `<option>` elements. Create a select menu like so:
+```html
+<div class="textboxWrapper dropdown">
+    <select class="textbox">
+        <option selected disabled>This is a dropdown menu</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+    </select>
+</div>
+```
+
+#### Radio buttons and checkboxes
+To create radio buttons using CyberBootstrap's custom styling, you should wrap the input element and its label together inside of a `<label>` element with the `selectOption` class:
+```html
+<label class="selectOption">
+    <input type="radio" name="singleSelect" checked>
+    Single option 1
+</label>
+<label class="selectOption">
+    <input type="radio" name="singleSelect">
+    Single option 2
+</label>
+<label class="selectOption">
+    <input type="radio" name="singleSelect">
+    Single option 3
+</label>
+```
+
+The same system applies to checkboxes. We'll just change our `type` from `radio` to `checkbox`:
+```html
+<label class="selectOption">
+    <input type="checkbox" name="multiSelect" checked>
+    Multi option 1
+</label>
+<!-- More options would follow -->
+```
+
+**Note:** Ensure that each set of options (`radio` or `checkbox`) has a matching `name` attribute.
+
+To add more elements to the label of a radio button or checkbox - like a description, for example - be sure to wrap all of the label's contents in a `<div>` like so:
+```html
+<label class="selectOption">
+    <input type="radio" name="singleSelect" checked>
+    <div>
+        <p>Single option 1</p>
+        <small>This option also has a description!</small>
+    </div>
+</label>
+```
+
 ### Code block syntax highlighting
 Styling is included for highlighting the syntax of code inside of code blocks.
 
@@ -90,36 +172,36 @@ If you want to add more languages to Prism, head to [Prism's download customizat
 ### Javascript
 In addition to handling some of the custom form elements, CyberBootstrap Javascript comes with a handful of helpful functions to make your other scripts easier to write.
 
-#### `_id(id, ancestor)`
+#### `_id(id, ancestor):HTMLElement`
 A shorthand function for `*.getElementById()` - returns an HTML element object
 * `id`: The ID of the target element
 * `ancestor`: An HTML element object to serve as the root for `getElementById()` (takes the place of the `*` above) - defaults to `document`
 
-#### `_class(id, ancestor)`
+#### `_class(id, ancestor):HTMLCollection`
 A shorthand function for `*.getElementsByClassName()` - returns an HTML element object
 * `id`: The class name of the target elements
 * `ancestor`: An HTML element object to serve as the root for `getElementsByClassName()` (takes the place of the `*` above) - defaults to `document`
 
-#### `_tag(tag, ancestor)`
+#### `_tag(tag, ancestor):HTMLCollection`
 A shorthand function for `*.getElementsByTagName()` - returns an HTML element object
 * `id`: The tag name of the target elements
 * `ancestor`: An HTML element object to serve as the root for `getElementsByTagName()` (takes the place of the `*` above) - defaults to `document`
 
-#### `_qs(selector, ancestor)`
+#### `_qs(selector, ancestor):any`
 A shorthand function for `*.querySelector()` - returns an HTML element object
 * `selector`: The query selector for the target element
 * `ancestor`: An HTML element object to serve as the root for `querySelector()` (takes the place of the `*` above) - defaults to `document`
 
-#### `_qsa(selector, ancestor)`
+#### `_qsa(selector, ancestor):any`
 A shorthand function for `*.querySelectorAll()` - returns an HTML element object
 * `selector`: The query selector for the target elements
 * `ancestor`: An HTML element object to serve as the root for `querySelectorAll()` (takes the place of the `*` above) - defaults to `document`
 
-#### `randomHex(length)`
+#### `randomHex(length):string`
 Returns a randomly generated hexadecimal string
 * `length`: The length to make the resulting string
 
-#### `clamp(num, min, max)`
+#### `clamp(num, min, max):number`
 Ensures that a number stays between a minimum and maximum
 * `num`: The number to check
 * `min`: The minimum value to return
@@ -143,7 +225,7 @@ By default, the user can click outside of the popup or use its close button to c
 
 The `hidePopup()` function can be called manually to hide the popup on demand, but is also used to handle the default close actions. When the popup is closed, it emits a `close` event that can be listened for.
 
-Here's an example that ties it all together:
+#### Example popup usage
 
 ```javascript
 // Show the popup with allowClose set to false
@@ -151,17 +233,17 @@ let popupId = showPopup('Test popup', `
     <p>It works!</p>
     <button id="testPopupDone">Close popup</button>
 `, false);
-// Listen for the popup's close event
-_id(popupId).addEventListener('close', () => {
-    console.log(`Popup closed!`);
-});
 // Close the popup when the button is clicked
 _id('testPopupDone').addEventListener('click', () => {
     hidePopup(popupId);
+});
+// Listen for the popup's close event
+_id(popupId).addEventListener('close', () => {
+    console.log(`Popup closed!`);
 });
 ```
 
 ## Browser support
 CyberBootstrap is intended to work on all modern browsers, including all Chromium-based browsers (Chrome, Edge, etc.) and Firefox.
 
-Internet Explorer **is not** supported (and shouldn't be used).
+Internet Explorer **is not** supported (and shouldn't be used for security reasons).
