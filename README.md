@@ -15,6 +15,8 @@ Then add this line to the bottom of your HTML `<body>`:
 <script src="https://bootstrap.simplecyber.org/cyber-bootstrap.js">
 ```
 
+My domain is effectively an alias of the default GitHub Pages URL, but if you don't trust me to keep it working, replace `bootstrap.simplecyber.org` with `github.com/CyberGen49/cyber-bootstrap`.
+
 Check out [the demo](demo/) for a demonstration of everything CyberBootstrap has to offer!
 
 ## Documentation
@@ -76,7 +78,7 @@ Buttons are the simplest form element, and require no extra classes for their st
 ```html
 <button>This is a button</button>
 ```
-The `small` or `large` classes can be added to buttons to make them small or large, respectively.
+The `small` or `large` classes can be added to buttons to make them small or large, respectively. Keep in mind that making buttons smaller could make them less convenient for mobile users to tap.
 
 #### Text boxes
 A simple text box can be created like so:
