@@ -76,6 +76,7 @@ Buttons are the simplest form element, and require no extra classes for their st
 ```html
 <button>This is a button</button>
 ```
+The `small` or `large` classes can be added to buttons to make them small or large, respectively.
 
 #### Text boxes
 A simple text box can be created like so:
@@ -84,6 +85,8 @@ A simple text box can be created like so:
 ```
 
 This `textbox` class applies to all text-based input `type`s, along with `<textarea>` elements.
+
+Like buttons, you can add the `small` or `large` classes to textboxes to make them small or large.
 
 #### Date inputs
 While date input types like `datetime-local` can be used just like normal textboxes, they need to be wrapped to customize the icon displayed on their right side. Add the wrapper element like so:

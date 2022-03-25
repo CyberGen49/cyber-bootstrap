@@ -65,14 +65,12 @@ for (i = 0; i &lt; 10; i++) {
         <h2>Form elements</h2>
         <form>
             
-            <input type="text" class="textbox" value="This is a single-line textbox">
-            <textarea class="textbox" rows="3">This is a
-multi-line
-textbox</textarea>
-            <input type="text" class="textbox" value="This is a single-line disabled textbox" disabled>
-            <textarea class="textbox" rows="3" disabled>This is a
-multi-line
-disabled textbox</textarea>
+            <input type="text" class="textbox small" value="This is small a single-line textbox">
+            <input type="text" class="textbox" value="This is a normal single-line textbox">
+            <input type="text" class="textbox large" value="This is a large single-line textbox">
+            <input type="text" class="textbox small" value="This is a small single-line disabled textbox" disabled>
+            <input type="text" class="textbox" value="This is a normal single-line disabled textbox" disabled>
+            <input type="text" class="textbox large" value="This is a large single-line disabled textbox" disabled>
         </form>
 
         <form>
@@ -94,8 +92,16 @@ disabled textbox</textarea>
         </form>
 
         <form>
-            <button type="button">Button</button>
-            <button type="button" disabled>Disabled button</button>
+            <button type="button" class="small">Small button</button>
+            <button type="button" class="small" disabled>Disabled small button</button>
+        </form>
+        <form>
+            <button type="button">Normal button</button>
+            <button type="button" disabled>Disabled normal button</button>
+        </form>
+        <form>
+            <button type="button" class="large">Large button</button>
+            <button type="button" class="large" disabled>Disabled large button</button>
         </form>
 
         <form>
