@@ -322,12 +322,17 @@ textarea.textbox { height: auto; }
 
 /* Set up buttons */
 button {
+    border: none;
+    background: none;
+    padding: 0px;
+    margin: 0px;
+}
+button:not(.noStyle) {
     height: 40px;
     margin: 3px;
     padding: 2px 16px 0px 16px;
     background: var(--acc);
     color: var(--bg);
-    border: none;
     border-radius: 8px;
     transition: 0.1s ease-in-out;
     user-select: none;
@@ -342,7 +347,7 @@ button.large {
     height: 46px;
     padding: 2px 20px 0px 20px;
 }
-button:active:not(:disabled) {
+button:active:not(:disabled):not(.noStyle) {
     background: var(--fg);
     border-color: var(--fg);
 }
@@ -596,7 +601,7 @@ label.selectOption input[type="checkbox"] {
     .textbox:hover:not(:disabled):not(:focus) {
         border-color: var(--bgLL);
     }
-    button:hover:not(:disabled):not(:active) {
+    button:hover:not(:disabled):not(:active):not(.noStyle) {
         background: var(--fgD);
         border-color: var(--fgD);
     }
