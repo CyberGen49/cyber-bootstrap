@@ -37,6 +37,10 @@ function clamp(num, min, max) {
     return num;
 }
 
+function randomInt(min, max) { 
+    return Math.round(Math.random() * (max - min) + min);
+}
+
 // Continuously scan for and adjust dynamic form elements
 setInterval(() => {
     const dropdowns = _tag('select');
