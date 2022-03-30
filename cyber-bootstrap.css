@@ -494,7 +494,6 @@ label.selectOption input[type="checkbox"] {
     background: none;
     transition: 0.1s ease-in-out;
 }
-.popup .titlebar .close:hover,
 .popup .titlebar .close:focus {
     color: var(--fg);
     background: none;
@@ -618,6 +617,10 @@ label.selectOption input[type="checkbox"] {
     }
     .customDropdown .option.selected:hover:not(:disabled) {
         background: var(--accL);
+    }
+    .popup .titlebar .close:hover {
+        color: var(--fg);
+        background: none;
     }
     ::-webkit-scrollbar-thumb:hover:not(:active) {
         background: var(--fg);
