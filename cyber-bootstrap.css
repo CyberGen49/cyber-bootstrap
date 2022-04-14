@@ -352,7 +352,7 @@ button:active:not(:disabled):not(.noStyle) {
     background: var(--fg);
     border-color: var(--fg);
 }
-button:disabled {
+button:disabled:not(.noStyle) {
     background: var(--bgL);
     color: var(--fgDDD);
 }
