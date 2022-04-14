@@ -539,7 +539,7 @@ label.selectOption input[type="checkbox"] {
 .d-block { display: block }
 .d-inlineBlock { display: inline-block }
 .d-flex { display: flex }
-.d-hidden { display: hidden }
+.d-hidden { display: none }
 .hideOverflow { overflow: hidden }
 /* Position classes */
 .p-relative { position: relative }
