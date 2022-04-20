@@ -334,7 +334,7 @@ button:not(.noStyle) {
     margin: 3px;
     padding: 2px 16px 0px 16px;
     background: var(--acc);
-    color: var(--bg);
+    color: var(--fgBtn);
     border-radius: 8px;
     transition: 0.1s ease-in-out;
     user-select: none;
@@ -352,6 +352,7 @@ button.large {
 button:active:not(:disabled):not(.noStyle) {
     background: var(--fg);
     border-color: var(--fg);
+    color: var(--bg);
 }
 button:disabled:not(.noStyle) {
     background: var(--bgL);
@@ -605,6 +606,7 @@ label.selectOption input[type="checkbox"] {
     button:hover:not(:disabled):not(:active):not(.noStyle) {
         background: var(--fgD);
         border-color: var(--fgD);
+        color: var(--bg);
     }
     label.selectOption:hover > input[type="radio"],
     label.selectOption:hover > input[type="checkbox"] {
