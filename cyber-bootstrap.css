@@ -347,7 +347,7 @@ button:not(.noStyle) {
     margin: 3px;
     padding: 2px 16px 0px 16px;
     background: var(--acc);
-    color: var(--fgBtn);
+    color: var(--accFg);
     border-radius: var(--roundness);
     transition: 0.1s ease-in-out;
     user-select: none;
