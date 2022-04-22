@@ -80,6 +80,12 @@ Buttons are the simplest form element, and require no extra classes for their st
 ```
 The `small` or `large` classes can be added to buttons to make them small or large, respectively. Keep in mind that making buttons smaller could make them less convenient for mobile users to tap.
 
+Add the `alt` class to a button to give it a less bright colour. This is good for non-default options in a dialog box, for example.
+
+Add the `outline` class to a button to give it an outlined appearance instead of filled. The button will become filled when hovered over or focused.
+
+If you want a button without CyberBootstrap's styling, give it the `noStyle` class. This will also remove the browser's default styling, making the button similar to a regular `div`.
+
 #### Text boxes
 A simple text box can be created like so:
 ```html
