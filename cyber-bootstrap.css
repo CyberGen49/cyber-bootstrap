@@ -72,7 +72,10 @@ https://github.com/CyberGen49/cyber-bootstrap
     --fgDD: #a7a8b1;
     --fgD: #d2d4e0;
     --fg: #fff;
-    --fgBtn: var(--bg);
+    --fgError: #f87070;
+    --fgWarning: #f8eb70;
+    --fgSuccess: #87f870;
+    --accFg: var(--bg);
     --acc: #6cc9ff;
     --accL: #a8dfff;
     --accLL: #ccecfd;
