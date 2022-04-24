@@ -78,6 +78,8 @@ Buttons are the simplest form element, and require no extra classes for their st
 ```html
 <button>This is a button</button>
 ```
+You style any other element like a button by giving it the `btn` class, like `a` elements, for example. You can also add the `disabled` class on these elements to make them appear disabled, similar to a `button`'s `disabled` attribute.
+
 The `small` or `large` classes can be added to buttons to make them small or large, respectively. Keep in mind that making buttons smaller could make them less convenient for mobile users to tap.
 
 Add the `alt` class to a button to give it a less bright colour. This is good for non-default options in a dialog box, for example.
