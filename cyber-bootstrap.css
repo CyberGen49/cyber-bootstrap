@@ -179,6 +179,7 @@ small {
 small b {
     color: inherit;
     font-size: inherit;
+    line-height: inherit;
 }
 
 /* Allow span elements to inherit from their parent */
