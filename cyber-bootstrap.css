@@ -176,10 +176,12 @@ small {
     line-height: 1.2;
     color: var(--fgDD);
 }
-small b {
-    color: inherit;
+small * {
     font-size: inherit;
     line-height: inherit;
+}
+small b {
+    color: inherit;
 }
 
 /* Allow span elements to inherit from their parent */
