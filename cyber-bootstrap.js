@@ -83,6 +83,7 @@ setInterval(() => {
                             dropdown.value = option.value;
                         else
                             dropdown.value = option.innerHTML;
+                        _id(id).dispatchEvent(new Event('change'));
                     });
                     // if (!foundFocus && !option.disabled) {
                     //     _id(optId).focus();
