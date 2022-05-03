@@ -453,6 +453,7 @@ label.selectOption input[type="checkbox"] {
     user-select: none;
     transition: 0.1s ease-in-out;
     opacity: 0;
+    overflow: auto;
 }
 .customDropdown.visible { opacity: 1 }
 .customDropdown .option {
@@ -468,6 +469,7 @@ label.selectOption input[type="checkbox"] {
     outline: none;
     border-radius: 8px;
     transition: 0.1s ease-in-out;
+    overflow: hidden;
 }
 .customDropdown .option:focus:not(.selected):not(:disabled) {
     background: var(--bgLL);
