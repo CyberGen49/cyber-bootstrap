@@ -481,7 +481,7 @@ label.selectOption input[type="checkbox"] {
 }
 .customDropdown .option.selected:not(:disabled) {
     background: var(--acc);
-    color: var(--bg);
+    color: var(--accFg);
 }
 .customDropdown .option:disabled {
     color: var(--fgDDD);
@@ -663,6 +663,7 @@ label.selectOption input[type="checkbox"] {
     }
     .customDropdown .option:hover:not(.selected):not(:disabled) {
         background: var(--bgLL);
+        color: var(--fg);
     }
     .customDropdown .option.selected:hover:not(:disabled) {
         background: var(--accL);
