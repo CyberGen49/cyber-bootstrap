@@ -108,6 +108,9 @@ https://github.com/CyberGen49/cyber-bootstrap
     line-height: var(--lineHeight);
     max-height: 999999px;
 }
+*:focus-visible {
+    outline: 2px solid var(--accL);
+}
 
 /* Remove default body margin and set background colour */
 body {
@@ -303,9 +306,6 @@ textarea.textbox { height: auto; }
     background: var(--bgL);
     pointer-events: none;
 }
-.textbox:focus:not(:disabled) {
-    border-color: var(--acc);
-}
 .textbox::placeholder {
     color: var(--fgDDD);
 }
@@ -471,14 +471,14 @@ label.selectOption input[type="checkbox"] {
     transition: 0.1s ease-in-out;
     overflow: hidden;
 }
-.customDropdown .option:focus:not(.selected):not(:disabled) {
+.customDropdown .option:focus-visible:not(.selected):not(:disabled) {
     background: var(--bgLL);
 }
 .customDropdown .option:active {
     background: inherit;
     color: inherit;
 }
-.customDropdown .option.selected:focus:not(:disabled) {
+.customDropdown .option.selected:focus-visible:not(:disabled) {
     background: var(--accL);
 }
 .customDropdown .option.selected:not(:disabled) {
@@ -542,7 +542,7 @@ label.selectOption input[type="checkbox"] {
     background: none;
     transition: 0.1s ease-in-out;
 }
-.popup .titlebar .close:focus {
+.popup .titlebar .close:focus-visible {
     color: var(--fg);
     background: none;
 }
@@ -645,7 +645,7 @@ label.selectOption input[type="checkbox"] {
         color: var(--fgD);
         text-decoration: underline;
     }
-    .textbox:hover:not(:disabled):not(:focus) {
+    .textbox:hover:not(:disabled):not(:focus-visible) {
         border-color: var(--bgLL);
     }
     .btn:hover:not(.disabled):not(:active),
