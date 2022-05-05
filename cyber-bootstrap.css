@@ -290,6 +290,9 @@ form {
     border-radius: var(--roundness);
     transition: 0.1s ease-in-out;
 }
+.textbox:focus-visible:not(:disabled) {
+    border-color: var(--bgLL);
+}
 .textbox.small {
     font-size: calc(var(--fontSize) - 2px);
     height: 36px;
@@ -645,7 +648,7 @@ label.selectOption input[type="checkbox"] {
         color: var(--fgD);
         text-decoration: underline;
     }
-    .textbox:hover:not(:disabled):not(:focus-visible) {
+    .textbox:hover:not(:disabled) {
         border-color: var(--bgLL);
     }
     .btn:hover:not(.disabled):not(:active),
