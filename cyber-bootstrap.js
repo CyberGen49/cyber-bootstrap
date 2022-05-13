@@ -41,10 +41,10 @@ function randomInt(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-// Continuously scan for and adjust dynamic form elements
-setInterval(() => {
-    const dropdowns = _tag('select');
-    Array.from(dropdowns).forEach((dropdown) => {
+// Adjust dynamic elements on DOM change
+document.addEventListener('domChange', () => {
+    const dropdowns = Array.from(_tag('select'));
+    dropdowns.forEach((dropdown) => {
         if (dropdown.dataset.adjusted === undefined && !dropdown.multiple && dropdown.dataset.default === undefined) {
             const showCustomDropdown = () => {
                 const options = _tag('option', dropdown);
@@ -116,7 +116,7 @@ setInterval(() => {
             dropdown.dataset.adjusted = true;
         }
     });
-}, 100);
+})
 
 // Handle popups
 function showPopup(title, innerHtml, closeable = true) {
@@ -185,3 +185,16 @@ function shiftResizeQueue() {
     }
 }
 window.addEventListener('resize', shiftResizeQueue);
+
+// Handle DOM mutations and dispatching the domChange event
+const mutationObs = new MutationObserver(() => {
+    document.dispatchEvent(new Event('domChange'));
+});
+mutationObs.observe(document.documentElement, {
+    attributes: true,
+    characterData: true,
+    childList: true,
+    subtree: true,
+    attributeOldValue: true,
+    characterDataOldValue: true
+});
