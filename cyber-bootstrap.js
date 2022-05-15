@@ -41,6 +41,11 @@ function randomInt(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
+function roundSmart(number, decimalPlaces = 0) {
+    const factorOfTen = Math.pow(10, decimalPlaces);
+    return Math.round(number * factorOfTen) / factorOfTen;
+}
+
 // Adjust dynamic elements on DOM change
 document.addEventListener('domChange', () => {
     const dropdowns = Array.from(_tag('select'));

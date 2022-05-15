@@ -220,6 +220,27 @@ Ensures that a number stays between a minimum and maximum
 * `min`: The minimum value to return
 * `max`: The maximum value to return
 
+#### `randomInt(min, max):number`
+Returns a random integer between a minimum (inclusive) and maximum (inclusive)
+* `min`: The minimum value to return
+* `max`: The maximum value to return
+
+#### `roundSmart(num, decimalPlaces?):number`
+Rounds a number to a certain maximum number of decimal places. For example, when rounding to 2 decimal places, `9.985 => 9.99`, and `1.2001 => 1.2`.
+* `num`: The number to round
+* `decimalPlaces`: The maximum number of decimal places to return
+
+#### Event: `domChange`
+This event is fired on the `document` object when any part of the HTML document changes.
+
+Example usage:
+```js
+document.addEventListener('domChange', () => {
+    console.log(`The DOM has changed!`);
+    // Do something else here...
+});
+```
+
 ### Popups
 CyberBootstrap makes it easy to display popup modals with Javascript:
 
