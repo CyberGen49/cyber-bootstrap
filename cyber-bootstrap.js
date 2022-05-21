@@ -161,7 +161,7 @@ function hidePopup(id) {
 let escapeQueue = [];
 function shiftEscapeQueue() {
     while (escapeQueue.length > 0) {
-        let action = escapeQueue.shift();
+        let action = escapeQueue.pop();
         try {
             action();
         } catch (error) {
