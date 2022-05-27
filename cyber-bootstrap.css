@@ -648,7 +648,7 @@ label.selectOption input[type="checkbox"] {
         color: var(--fgD);
         text-decoration: underline;
     }
-    .textbox:hover:not(:disabled) {
+    .textbox:hover:not(:disabled):not(:focus) {
         border-color: var(--bgLL);
     }
     .btn:hover:not(.disabled):not(:active),
