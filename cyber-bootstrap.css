@@ -517,6 +517,12 @@ label.selectOption input[type="checkbox"] {
     margin: auto;
     background: var(--bg);
     border-radius: 12px;
+    transform: scale(0.9);
+    transition: 0.1s ease-in-out;
+}
+.popupCont.visible .popup {
+    opacity: 1;
+    transform: none;
 }
 .popup .titlebar {
     display: flex;
