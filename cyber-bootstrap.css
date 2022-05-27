@@ -290,8 +290,8 @@ form {
     border-radius: var(--roundness);
     transition: 0.1s ease-in-out;
 }
-.textbox:focus-visible:not(:disabled) {
-    border-color: var(--bgLL);
+.textbox:focus:not(:disabled) {
+    border-color: var(--acc);
 }
 .textbox.small {
     font-size: calc(var(--fontSize) - 2px);
