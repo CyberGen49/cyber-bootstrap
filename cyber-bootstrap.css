@@ -172,6 +172,10 @@ a {
     color: var(--acc);
     text-decoration: none;
 }
+.canHover a:hover {
+    color: var(--fgD);
+    text-decoration: underline;
+}
 
 /* Set up small text */
 small {
@@ -290,6 +294,9 @@ form {
     border-radius: var(--roundness);
     transition: 0.1s ease-in-out;
 }
+.canHover .textbox:hover:not(:disabled):not(:focus) {
+    border-color: var(--bgLL);
+}
 .textbox:focus:not(:disabled) {
     border-color: var(--acc);
 }
@@ -392,6 +399,18 @@ button.large {
     height: 46px;
     padding: 2px 20px 0px 20px;
 }
+.canHover .btn:hover:not(.disabled):not(:active),
+.canHover button:hover:not(:disabled):not(:active):not(.noStyle) {
+    background: var(--fgD);
+    border-color: var(--fgD);
+    color: var(--bg);
+    text-decoration: none;
+}
+.canHover .btn:hover:not(.disabled):not(:active) *,
+.canHover button:hover:not(:disabled):not(:active):not(.noStyle) * {
+    color: var(--bg);
+    text-decoration: none;
+}
 .btn:active:not(.disabled),
 button:active:not(:disabled):not(.noStyle) {
     background: var(--fg);
@@ -435,6 +454,14 @@ label.selectOption input[type="checkbox"] {
     margin-top: 0;
     margin-right: 0.4em;
 }
+.canHover label.selectOption:hover > input[type="radio"],
+.canHover label.selectOption:hover > input[type="checkbox"] {
+    color: var(--fgD);
+}
+.canHover label.selectOption:hover > input[type="radio"]:checked,
+.canHover label.selectOption:hover > input[type="checkbox"]:checked {
+    color: var(--accL);
+}
 
 /* Set up custom dropdown menus */
 .customDropdownHitArea {
@@ -473,6 +500,13 @@ label.selectOption input[type="checkbox"] {
     border-radius: 8px;
     transition: 0.1s ease-in-out;
     overflow: hidden;
+}
+.canHover .customDropdown .option:hover:not(.selected):not(:disabled) {
+    background: var(--bgLL);
+    color: var(--fg);
+}
+.canHover .customDropdown .option.selected:hover:not(:disabled) {
+    background: var(--accL);
 }
 .customDropdown .option:focus-visible:not(.selected):not(:disabled) {
     background: var(--bgLL);
@@ -551,6 +585,10 @@ label.selectOption input[type="checkbox"] {
     background: none;
     transition: 0.1s ease-in-out;
 }
+.canHover .popup .titlebar .close:hover {
+    color: var(--fg);
+    background: none;
+}
 .popup .titlebar .close:focus-visible {
     color: var(--fg);
     background: none;
@@ -584,6 +622,11 @@ label.selectOption input[type="checkbox"] {
     border-radius: 100px;
     background-clip: padding-box;
     border: 6px solid rgba(0, 0, 0, 0);
+}
+.canHover ::-webkit-scrollbar-thumb:hover:not(:active) {
+    background: var(--fg);
+    background-clip: padding-box;
+    border: 4px solid rgba(0, 0, 0, 0);
 }
 ::-webkit-scrollbar-thumb:active {
     background: var(--acc);
@@ -645,52 +688,5 @@ label.selectOption input[type="checkbox"] {
     }
     .customDropdown .option {
         padding: 10px 12px;
-    }
-}
-
-/* Add element hover styling for hover-capable devices */
-@media (hover: hover) {
-    a:hover {
-        color: var(--fgD);
-        text-decoration: underline;
-    }
-    .textbox:hover:not(:disabled):not(:focus) {
-        border-color: var(--bgLL);
-    }
-    .btn:hover:not(.disabled):not(:active),
-    button:hover:not(:disabled):not(:active):not(.noStyle) {
-        background: var(--fgD);
-        border-color: var(--fgD);
-        color: var(--bg);
-        text-decoration: none;
-    }
-    .btn:hover:not(.disabled):not(:active) *,
-    button:hover:not(:disabled):not(:active):not(.noStyle) * {
-        color: var(--bg);
-        text-decoration: none;
-    }
-    label.selectOption:hover > input[type="radio"],
-    label.selectOption:hover > input[type="checkbox"] {
-        color: var(--fgD);
-    }
-    label.selectOption:hover > input[type="radio"]:checked,
-    label.selectOption:hover > input[type="checkbox"]:checked {
-        color: var(--accL);
-    }
-    .customDropdown .option:hover:not(.selected):not(:disabled) {
-        background: var(--bgLL);
-        color: var(--fg);
-    }
-    .customDropdown .option.selected:hover:not(:disabled) {
-        background: var(--accL);
-    }
-    .popup .titlebar .close:hover {
-        color: var(--fg);
-        background: none;
-    }
-    ::-webkit-scrollbar-thumb:hover:not(:active) {
-        background: var(--fg);
-        background-clip: padding-box;
-        border: 4px solid rgba(0, 0, 0, 0);
     }
 }

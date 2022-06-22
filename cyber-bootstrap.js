@@ -191,6 +191,24 @@ function shiftResizeQueue() {
 }
 window.addEventListener('resize', shiftResizeQueue);
 
+// Handle disabling hover if the device doesn't support it
+const canHover = window.matchMedia('(hover: none)');
+const canHoverHandler = (result) => {
+    if (result.matches) document.body.classList.remove('canHover');
+    else document.body.classList.add('canHover');
+};
+canHoverHandler(canHover);
+canHover.addEventListener('change', canHoverHandler);
+
+// Handle the touch device class
+const isTouch = window.matchMedia('(pointer: coarse)');
+const isTouchHandler = (result) => {
+    if (result.matches) document.body.classList.add('isTouch');
+    else document.body.classList.remove('isTouch');
+};
+isTouchHandler(isTouch);
+isTouch.addEventListener('change', isTouchHandler);
+
 // Handle DOM mutations and dispatching the domChange event
 const mutationObs = new MutationObserver(() => {
     document.dispatchEvent(new Event('domChange'));
