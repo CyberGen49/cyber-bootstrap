@@ -664,6 +664,11 @@ label.selectOption input[type="checkbox"] {
         color: var(--bg);
         text-decoration: none;
     }
+    .btn:hover:not(.disabled):not(:active) *,
+    button:hover:not(:disabled):not(:active):not(.noStyle) * {
+        color: var(--bg);
+        text-decoration: none;
+    }
     label.selectOption:hover > input[type="radio"],
     label.selectOption:hover > input[type="checkbox"] {
         color: var(--fgD);
