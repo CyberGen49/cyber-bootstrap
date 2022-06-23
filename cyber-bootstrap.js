@@ -126,7 +126,7 @@ document.addEventListener('domChange', () => {
 // Handle popups
 function showPopup(title, innerHtml, closeable = true) {
     let id = `popup-${Date.now()}`;
-    document.documentElement.insertAdjacentHTML('beforeend', `
+    document.body.insertAdjacentHTML('beforeend', `
         <div id="${id}" class="popupCont">
             <div id="${id}-box" class="popup">
                 <div class="titlebar">
