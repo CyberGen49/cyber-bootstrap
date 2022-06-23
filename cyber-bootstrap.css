@@ -557,7 +557,7 @@ label.selectOption input[type="checkbox"] {
 .popupCont.visible .popup {
     opacity: 1;
     transform: none;
-    box-shadow: 0px 5px 30px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 30px 5px rgba(0, 0, 0, 0.3);
 }
 .popup .titlebar {
     display: flex;
