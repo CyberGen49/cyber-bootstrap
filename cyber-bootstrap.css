@@ -572,7 +572,6 @@ label.selectOption input[type="checkbox"] {
     text-align: left;
 }
 .popup .titlebar .close {
-    height: auto;
     padding: 0px;
     margin-top: 2px;
     margin-left: 15px;
@@ -580,9 +579,6 @@ label.selectOption input[type="checkbox"] {
     font-size: 26px;
     color: var(--fgDD);
     line-height: 1;
-    border: none;
-    outline: none;
-    background: none;
     transition: 0.1s ease-in-out;
 }
 .canHover .popup .titlebar .close:hover {

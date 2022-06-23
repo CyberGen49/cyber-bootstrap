@@ -131,7 +131,7 @@ function showPopup(title, innerHtml, closeable = true) {
             <div id="${id}-box" class="popup">
                 <div class="titlebar">
                     <div class="title">${title}</div>
-                    ${(closeable) ? `<button id="${id}-close" class="close">close</button>`:''}
+                    ${(closeable) ? `<button id="${id}-close" class="close noStyle">close</button>`:''}
                 </div>
                 <div class="content">${innerHtml}</div>
             </div>
