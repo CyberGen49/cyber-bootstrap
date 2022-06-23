@@ -171,6 +171,7 @@ ol ol {
 a {
     color: var(--acc);
     text-decoration: none;
+    font-size: inherit;
 }
 .canHover a:hover {
     color: var(--fgD);
